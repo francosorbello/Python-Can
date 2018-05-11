@@ -1,6 +1,15 @@
 from algo1 import *
 from random import randint
 
+def costo_camino(b,x):
+    n=len(x)
+    costo=0
+    for i in range(0,n):
+        for j in range(0,n):
+            if x[i][j]==1:
+                costo=costo+b[i][j]
+    return costo
+
 def busco_ocupadas(x,i):
     for a in range(0,len(x)):
         if x[a][i]==1:
@@ -12,10 +21,10 @@ def asigno_city(x):
     for i in range(0,n):
         #aux=busco_ocupadas(x,i)
         for j in range(0,n):
-            if busco_ocupadas(x,i)==0:
+            if busco_ocupadas(x,j)==0:
                 x[i][j]=1
                 break
-    imprimirMAT(x,n,n)
+    return x
 
 def imprimirMAT(matriz,m,n):
     for i in range(0,m):
@@ -40,4 +49,8 @@ relleno_random(x,n,0)
 print("Matriz de costos:")
 imprimirMAT(b,n,n)
 print("----------------")
-asigno_city(x)
+x=asigno_city(x)
+aux=costo_camino(b,x)
+print("Recorrido:")
+imprimirMAT(x,n,n)
+print("Costo del camino:",aux)
