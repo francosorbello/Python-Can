@@ -5,8 +5,11 @@ from libreriafinal import *
 global costo
 
 def prometedor(matriz,costo,i,j):
-    if matriz[i][j]>costo:
-        return False
+    n=len(matriz)
+    for a in range(0,n):
+        for b in range(0,n):        
+            if matriz[i][j]>costo:
+                return False
     return True
 
 def camino(matriz,n):
@@ -33,7 +36,7 @@ def relleno_matriz(matriz,n,rand):
                 matriz[a][b]=aux
                 matriz[b][a]=aux
 
-n=4
+n=3
 ciudades=Array(n,Array(n,0)) #matriz de costos
 relleno_matriz(ciudades,n,20)
 imprimirMAT(ciudades,n,n)
