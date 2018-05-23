@@ -1,5 +1,7 @@
 from libreriafinal import *
 from algo1 import *
+import time
+
 def dinamica(n,k):
     casobase=[1,1]
     if n==1 and k==1:
@@ -33,11 +35,33 @@ def factorial(numero):
             n1=n1+1
     return rta
 
-
 cant_pictogramas=int(input("Ingrese la cantidad de pictogramas disponibles: "))
 largo_pass=int(input("Ingrese el largo de la contraseña: "))
 
-tiempo=combinacional(cant_pictogramas,largo_pass)*1.3
-print("Tiempo de acceso por fuerza bruta:",tiempo,"segundos")
+if cant_pictogramas<largo_pass:
+    print("Error: el largo de la contraseña tiene que ser menor o igual a la cantidad de pictogramas.")
+    while cant_pictogramas<largo_pass:
+        cant_pictogramas=int(input("Ingrese la cantidad de pictogramas disponibles: "))
+        largo_pass=int(input("Ingrese el largo de la contraseña: "))
+        print("Error: el largo de la contraseña tiene que ser menor o igual a la cantidad de pictogramas.")
 
-print(dinamica(2,1))
+#parte gráfica
+aux=int(input("1.Calcularlo con 'divide y vencerás'\n2.Calcular con 'programación dinámica'\n3.Comparar tiempo de ejecución.\n "))
+if aux==1:
+    tiempo=combinacional(cant_pictogramas,largo_pass)*1.3
+    print("Tiempo de acceso por fuerza bruta:",tiempo,"segundos")
+elif aux==2:
+    tiempo=dinamica(cant_pictogramas,largo_pass)
+    print("Tiempo de acceso por fuerza bruta:",tiempo,"segundos")
+else:
+    start=time.time()
+    tiempo=combinacional(cant_pictogramas,largo_pass)*1.3
+    fin=time.time()
+    tiempoDV=fin-start
+    print("Tiempo de ejecución divide y vencerás: ",tiempoDV)
+    #---#
+    start=time.time()
+    tiempo=dinamica(cant_pictogramas,largo_pass)
+    fin=time.time()
+    tiempoDIN=fin-start
+    print("Tiempo de ejecución dinámica: ",tiempoDIN)

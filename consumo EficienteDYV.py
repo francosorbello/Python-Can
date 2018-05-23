@@ -9,22 +9,14 @@ def decido_mejores(lista_apps,consumo_max):
     print(mejor_app)
 
 def buscando(app,ranking_base):
+    #busco la app con el mejor ranking 
     if app != None:
         if app.value.ranking>ranking_base:
+            #a diferencia de programación dinámica, donde recorro toda la lista,
+            #en greedy tomo el primer caso que sea mejor que el caso base
             ranking_base=app.value.ranking
         return buscando(app.nextNode,ranking_base)
     return ranking_base
-        
-
-"""def decido_mejores(lista_apps,consumo_max):
-    apps_finales=LinkedList()
-    currentnode=lista_apps.head
-    casobase=currentnode.value.uso
-    while currentnode != None:
-        #sumo el uso del caso base con el de la siguiente app. Si es menor al uso maximo la agrego a la lista de apps que quedan vivas.
-        if casobase+currentnode.nextNode.value.uso<=consumo_max:
-            a=2"""
-        
 
 def deleteAPP(linkedlist,element):
     currentnode=node()
@@ -42,6 +34,7 @@ def deleteAPP(linkedlist,element):
         return None
 
 def imprimirAPP(l):
+  #imprime una lista
   currentAPP=node()
   currentAPP=l.head
   while currentAPP != None:
@@ -50,23 +43,17 @@ def imprimirAPP(l):
     currentAPP=currentAPP.nextNode
   print("")
 
-def mejor_app(lista_apps,consumo_max):
-    a=2
-
 def quito_inutiles(lista_apps,consumo_max):
+    #elimina las apps que sobrepasen el consumo maximo
     currentnode=lista_apps.head
     while currentnode != None:
         if currentnode.value.uso>consumo_max:
             deleteAPP(lista_apps,currentnode.value.uso)
         currentnode=currentnode.nextNode
-
-    
+  
 def gestor_apps(lista_apps,consumo_max):
     lista_app=quito_inutiles(lista_apps,consumo_max)#elimina las apps que sobrepasen el consumo maximo
-    print("Lista ordenada:")
-    imprimirAPP(lista_apps)
     decido_mejores(lista_apps,consumo_max)
-    
 
 class app:
     ranking=None
@@ -109,7 +96,6 @@ app5=app()
 app5.ranking=6
 app5.uso=2
 app5.nombre="Ajustes"
-
 appendLIST(lista_apps,app5)
 print("[Nombre, USO , RANKING]")
 print("---------------")
