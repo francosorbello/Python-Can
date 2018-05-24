@@ -43,6 +43,7 @@ class node:
     nextNode=None
 
 consumo_max=5
+print("Consumo máximo:",consumo_max)
 lista_apps=Linkedlist()
 #HARDCODEO
 app1=app()
