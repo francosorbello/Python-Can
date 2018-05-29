@@ -1,4 +1,4 @@
-from algo1 import *
+"""from algo1 import *
 from libreriafinal import *
 
 class node:
@@ -23,4 +23,9 @@ append(l2,7)
 currentder=l2.head
 for b in range(medio+1,lengthLIST(l)):
     updateLIST(l,currentder.value,b)
-    currentder=currentder.nextNode
+    currentder=currentder.nextNode"""
+
+def preua(n):
+    return n+1, False
+if preua(2)==False:
+    print("asdf")
