@@ -1,12 +1,20 @@
-"""A=[]
-list.append(A,1)
-list.append(A,2)
-list.append(A,3)
-print(A)
-print(A[2])
-A.pop(0)
-print(A)"""
-B=1*[0]
-print(B)
-B.pop()
-print(len(B))
+def busco_max(lista):
+    max=len(lista[0])
+    for a in range(0,len(lista)):
+        if len(lista[a])>max:
+            max=len(lista[a])
+    return max
+def relleno(lista,max):
+    for a in range(0,len(lista)):
+        if len(lista[a])<max:
+            lista[a]=lista[a].rjust(max," ")#agrego los espacios faltantes
+    return lista
+                
+
+a=["hola","parasito"]
+#a[0]=a[0].ljust(4)
+#print(len(a[0]))
+#eso=busco_max(a)
+#print(eso)
+#print(relleno(a,eso))
+print(a[0][0])

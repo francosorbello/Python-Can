@@ -1,3 +1,11 @@
 {
-    "python.pythonPath": "/bin/python"
+    "python.pythonPath": "/sbin/python",
+    "python.unitTest.unittestArgs": [
+        "-v",
+        "-s",
+        "./__pycache__",
+        "-p",
+        "test*.py"
+    ],
+    "python.unitTest.unittestEnabled": true
 }
