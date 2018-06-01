@@ -1,3 +1,10 @@
+def vacio(lista,max):
+    max=(-1)*max
+    for a in range(0,len(lista)):
+        lista[a]=lista[a].ljust(100*max)
+    return lista
+
+
 def busco_max(lista):
     max=len(lista[0])
     for a in range(0,len(lista)):
@@ -9,12 +16,7 @@ def relleno(lista,max):
         if len(lista[a])<max:
             lista[a]=lista[a].rjust(max," ")#agrego los espacios faltantes
     return lista
-                
 
 a=["hola","parasito"]
-#a[0]=a[0].ljust(4)
-#print(len(a[0]))
-#eso=busco_max(a)
-#print(eso)
-#print(relleno(a,eso))
-print(a[0][0])
+a=relleno(a,busco_max(a))
+print(vacio(a,busco_max(a)))
