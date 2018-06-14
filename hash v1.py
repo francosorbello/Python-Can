@@ -1,0 +1,14 @@
+lista=4*[0]
+#--#
+lista1=[1,2,3,4,5]
+lista[0]=lista1
+#--#
+lista2=[6,7,8,9,10]
+lista[1]=lista2
+#--#
+lista3=[11,12,13,14,15]
+lista[2]=lista3
+#--#
+lista4=[16,17,18,19,20]
+lista[3]=lista4
+#--#

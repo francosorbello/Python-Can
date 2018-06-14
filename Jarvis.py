@@ -18,7 +18,7 @@ def insertionSortMod(unsorted_array, index):
             unsorted_array[j] = check_val
             j -= 1
         i += 1
-    print(unsorted_array)
+    #print(unsorted_array)
     return unsorted_array
 
 def getNumDigit(n):
@@ -32,7 +32,7 @@ def getNumDigit(n):
 
 def radixSort(arr, max_value):
     num_digits = getNumDigit(max_value)
-    for digit in range(num_digits+1,1,-1):
+    for digit in range(num_digits+1,1,-1):#doy vuelta el recorrido para demostrar que no funciona
         arr = insertionSortMod(arr, digit)
     return arr
 
